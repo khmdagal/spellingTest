@@ -30,8 +30,22 @@ body {
 .aside {
   grid-area: b;
   border-radius: 10%;
-  border: double;
+
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: fit-content;
+}
+.images-section {
+  display: flex;
+  justify-content: center;
+  width: 100px;
+}
+.imageplace {
+  width: 20vw;
+  align-self: center;
+  border-radius: 50%;
 }
 .footer {
   text-align: center;

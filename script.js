@@ -11,7 +11,9 @@ const spanElName = document.querySelector("#name-span");
 const playerInfContainer = document.querySelector(".player-info");
 const startingWord = document.querySelector("#start-Word");
 const endingWord = document.querySelector("#finish-Word");
-const image = document.querySelector("#imageplace");
+const m1 = document.querySelector("#mo1");
+
+const imageSection = document.querySelector(".images-section");
 
 // declaring the arrays that holds the words
 const words = [
@@ -32,16 +34,16 @@ const words = [
   "busy",
   "business",
 ];
-const images = [
-  "https://github.com/khmdagal/spellingTest/blob/master/images/mo-khamis.jpg",
-  "https://github.com/khmdagal/spellingTest/blob/master/images/mo-suite.jpg",
-  "https://github.com/khmdagal/spellingTest/blob/master/images/rayaan-surprice.jpg",
-  "https://github.com/khmdagal/spellingTest/blob/master/images/rayaan.jpg",
-];
-
-let moImg = images.slice(0, 2);
-let RaImg = images.slice(2);
-let practiceRange = ["actual", "actually", "address", "although", "answer"];
+// const images = [
+//   "_imagesmo-khamis.jpg",
+//   "_imagesmo-suite.jpg",
+//   "_images/rayaan-surprice.jpg",
+//   "_images/rayaan.jpg",
+// ];
+// console.log(image[0])
+// let moImg = images.slice(0, 2);
+// let RaImg = images.slice(2);
+// let practiceRange = ["actual", "actually", "address", "although", "answer"];
 
 let correctCount = 1;
 let wrongCount = 1;
@@ -50,13 +52,19 @@ let comparingAnswer;
 
 firstName.addEventListener("keypress", (e) => {
   let value = e.target.value;
-
   if (e.key === "Enter") {
     myName = spanElName.innerText = value;
-    firstName.disabled = true;
-    startingWord.disabled = true;
-    endingWord.disabled = true;
-    displayButton.focus();
+    if (myName === "Mohamed") {
+      m1.src =
+        "https://scontent.fman1-2.fna.fbcdn.net/v/t39.30808-6/273018888_2945578109067650_1879626940334376411_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=a26aad&_nc_ohc=MvMaZcvWtc8AX8VaYIT&_nc_ht=scontent.fman1-2.fna&oh=00_AfCbrAAar87YWq6f1JBfiW5NFkRu2XV4rH9F7pNwxLJjoA&oe=639F3EFF";
+      firstName.disabled = true;
+      startingWord.disabled = true;
+      endingWord.disabled = true;
+      displayButton.focus();
+    } else if (myName === "Rayaan") {
+      m1.src =
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZo01AYdIwh4DQHvIQyGEQ_5Dj5tsFVbpQOc44mSj-MV5pyebQI40zjKsp2hZPWPZrAfY&usqp=CAU";
+    }
   }
 });
 
@@ -102,11 +110,20 @@ const sayTheWord = (theWord) => {
 };
 
 displayButton.addEventListener("click", sayTheWord);
+const setImage = () => {
+  if (firstName.value === "Mohamed") {
+    console.log(firstName.valu);
+    const moRandomImage = Math.floor(Math.random() * moImg.length);
+    image.src = moRandomImage;
+  } else if (firstName.value === "Rayaan") {
+    const rayRandomImage = Math.floor(Math.random() * RaImg.length);
+    image.src = rayRandomImage;
+  }
+};
 
 inputEl.addEventListener("keypress", (e) => {
   let event = e.target.value;
   if (e.key === "Enter") {
-    console.log();
     if (inputEl.value === comparingAnswer) {
       playerInfContainer.disabled = true;
       sayResult.text = `Exellent ${myName} You got it, let keep practice `;
@@ -125,16 +142,6 @@ inputEl.addEventListener("keypress", (e) => {
     }
   }
 });
-
-const setImage = () => {
-  if (firstName.value === "Mohamed") {
-    const moRandomImage = Math.floor(Math.random() * moImg.length);
-    image.src = moRandomImage;
-  } else if (firstName.value === "Rayaan") {
-    const rayRandomImage = Math.floor(Math.random() * RaImg.length);
-    image.src = rayRandomImage;
-  }
-};
 
 window.onload = () => {
   playerInfContainer.style.backgroundColor = "lightgreen"; // add timer
