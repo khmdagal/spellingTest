@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./style.css" rel="stylesheet" />
+    <title>Year 3 - 4 Statutory Spellings Practice</title>
+  </head>
+
+  <body class="body">
+    <header class="header">
+      <h1>Year 3 - 4 Statutory Spellings Practice</h1>
+      <nav>
+        <a href="./index.html">🏠Home Page</a>
+      </nav>
+    </header>
+    <main class="main">
+      <section class="questions-container">
+        <div class="player-info">
+          <div>
+            <p>Choose the range words</p>
+            <label for="">From</label>
+            <input type="number" class="words-range" id="start-Word" />
+            <label for="">To</label>
+            <input type="number" class="words-range" id="finish-Word" />
+          </div>
+          <div id="name-container">
+            <label for="fName">First Name</label>
+            <input type="text" id="fNme" />
+          </div>
+        </div>
+
+        <div>
+          <p>Get ready the word is about to be displayed</p>
+          <span id="dispaly-word-paragraph"></span>
+          <button id="word-display-btn">Say The Word</button>
+        </div>
+        <div>
+          <input type="text" id="input-word" />
+          <button id="check-answer-btn">Check The Answer</button>
+        </div>
+      </section>
+
+      <aside class="aside">
+        <div>
+          <p>Name: <span id="name-span"></span></p>
+          <p>Correct Answers: <span id="count-correct-answers">0</span></p>
+          <p>Wrong Answers: <span id="count-wrong-answers">0</span></p>
+        </div>
+
+        <!-- I will used this part next phase of the projec, this will enable the
+        student to focuse certian word each time
+ -->
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <p>@Copyright Mohamed Khadar Mohamed</p>
+      <script src="/script.js"></script>
+    </footer>
+  </body>
+</html>

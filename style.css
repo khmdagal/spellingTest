@@ -1,0 +1,39 @@
+body {
+  background-color: bisque;
+  padding: 10px;
+  min-width: 200px;
+  grid-template-columns: auto;
+  grid-template-rows: 100px 400px 100px;
+}
+#dispaly-word-paragraph {
+  display: none;
+}
+.header {
+  grid-area: h;
+  text-align: center;
+  text-decoration: underline;
+  height: 20vh;
+}
+.main {
+  display: grid;
+  grid:
+    "a a a b b"
+    "a a a b b";
+  height: 60vh;
+}
+.words-range {
+  width: 50px;
+}
+.questions-container {
+  grid: a;
+}
+.aside {
+  grid-area: b;
+  border-radius: 10%;
+  border: double;
+  padding: 10px;
+}
+.footer {
+  text-align: center;
+  height: 10vh;
+}
