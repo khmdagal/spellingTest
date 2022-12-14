@@ -11,6 +11,7 @@ const spanElName = document.querySelector("#name-span");
 const playerInfContainer = document.querySelector(".player-info");
 const startingWord = document.querySelector("#start-Word");
 const endingWord = document.querySelector("#finish-Word");
+const image = document.querySelector("#imageplace");
 
 // declaring the arrays that holds the words
 const words = [
@@ -31,7 +32,15 @@ const words = [
   "busy",
   "business",
 ];
+const images = [
+  "https://github.com/khmdagal/spellingTest/blob/master/images/mo-khamis.jpg",
+  "https://github.com/khmdagal/spellingTest/blob/master/images/mo-suite.jpg",
+  "https://github.com/khmdagal/spellingTest/blob/master/images/rayaan-surprice.jpg",
+  "https://github.com/khmdagal/spellingTest/blob/master/images/rayaan.jpg",
+];
 
+let moImg = images.slice(0, 2);
+let RaImg = images.slice(2);
 let practiceRange = ["actual", "actually", "address", "although", "answer"];
 
 let correctCount = 1;
@@ -116,6 +125,16 @@ inputEl.addEventListener("keypress", (e) => {
     }
   }
 });
+
+const setImage = () => {
+  if (firstName.value === "Mohamed") {
+    const moRandomImage = Math.floor(Math.random() * moImg.length);
+    image.src = moRandomImage;
+  } else if (firstName.value === "Rayaan") {
+    const rayRandomImage = Math.floor(Math.random() * RaImg.length);
+    image.src = rayRandomImage;
+  }
+};
 
 window.onload = () => {
   playerInfContainer.style.backgroundColor = "lightgreen"; // add timer
