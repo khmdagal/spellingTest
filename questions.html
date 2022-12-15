@@ -16,32 +16,33 @@
       </nav>
     </header>
     <main class="main">
-      <section class="questions-container">
-        <div class="player-info">
+      <form>
+        <section class="questions-container">
+          <div class="player-info">
+            <div>
+              <p>Choose the range words</p>
+              <label for="">From</label>
+              <input type="number" class="words-range" id="start-Word" />
+              <label for="">To</label>
+              <input type="number" class="words-range" id="finish-Word" />
+            </div>
+            <div id="name-container">
+              <label for="fName">First Name</label>
+              <input type="text" id="fNme" />
+            </div>
+          </div>
+
           <div>
-            <p>Choose the range words</p>
-            <label for="">From</label>
-            <input type="number" class="words-range" id="start-Word" />
-            <label for="">To</label>
-            <input type="number" class="words-range" id="finish-Word" />
+            <p>Get ready the word is about to be displayed</p>
+            <span id="dispaly-word-paragraph"></span>
+            <button id="word-display-btn">Say The Word</button>
           </div>
-          <div id="name-container">
-            <label for="fName">First Name</label>
-            <input type="text" id="fNme" />
+          <div>
+            <input type="text" id="input-word" />
+            <!-- <button id="check-answer-btn">Check The Answer</button> -->
           </div>
-        </div>
-
-        <div>
-          <p>Get ready the word is about to be displayed</p>
-          <span id="dispaly-word-paragraph"></span>
-          <button id="word-display-btn">Say The Word</button>
-        </div>
-        <div>
-          <input type="text" id="input-word" />
-          <button id="check-answer-btn">Check The Answer</button>
-        </div>
-      </section>
-
+        </section>
+      </form>
       <aside class="aside">
         <div>
           <p>Name: <span id="name-span"></span></p>
@@ -49,8 +50,7 @@
           <p>Wrong Answers: <span id="count-wrong-answers">0</span></p>
         </div>
         <div class="images-section">
-        <img class="imageplace" id="mo1" />
-        
+          <img class="imageplace" id="mo1" />
         </div>
       </aside>
     </main>

@@ -47,8 +47,16 @@ body {
   align-self: center;
   border-radius: 50%;
 }
-#main-image{
+#main-image {
   width: 100vw;
+}
+input {
+  border-radius: 1px 10px;
+}
+form {
+  margin: 30px;
+  border: double;
+  border-radius: 10px;
 }
 .footer {
   text-align: center;
