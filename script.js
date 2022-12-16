@@ -145,10 +145,7 @@ let CourageWords = [
   "You deserve a cake",
 ];
 // setting the accuracy of the result
-const result = () => {
-  return (accuracy.textContent = spanElCorrect.value - spanElWrong);
-};
-result(); //calling the accuracy function
+//calling the accuracy function
 
 const getEncourageWord = () => {
   const courage = Math.floor(Math.random() * CourageWords.length);
@@ -158,6 +155,7 @@ const getEncourageWord = () => {
 
 let correctCount = 1;
 let wrongCount = 1;
+let accuracyResult = correctCount;
 let myName;
 let comparingAnswer;
 
@@ -247,6 +245,9 @@ const checkAnswer = () => {
     p.textContent = `${sayResult.text}`;
     inputEl.value = "";
     spanElCorrect.textContent = correctCount++;
+    accuracy.textContent = Number(
+      spanElCorrect.textContent - spanElWrong.textContent
+    );
     speechSynthesis.speak(sayResult);
     inputEl.innerText = "";
     displayButton.focus();
@@ -258,6 +259,7 @@ const checkAnswer = () => {
     speechSynthesis.speak(sayResult);
     inputEl.innerText = "";
     displayButton.focus();
+    accuracy.textContent = Number(spanElCorrect.textContent - spanElWrong.textContent);
   }
 };
 
