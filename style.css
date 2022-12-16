@@ -64,12 +64,16 @@ body {
 #main-image {
   /* width: 90vw; */
 }
-.congra-pragraph-id {
+#congra-pragraph-id {
   width: 20vw;
   height: 35vh;
   align-self: center;
   border-radius: 50%;
   border: solid;
+  font-size: larger;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 input {
   border-radius: 1px 10px;
