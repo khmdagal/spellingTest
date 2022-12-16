@@ -48,6 +48,7 @@ body {
   justify-content: center;
   width: fit-content;
   border: solid;
+  box-shadow: 20px -5px 10px 2px gray;
 }
 .images-section {
   display: flex;
@@ -58,34 +59,64 @@ body {
   height: 35vh;
   align-self: center;
   border-radius: 50%;
+  animation: spin infinite 2s linear;
+  animation-direction: alternate;
+  box-shadow: 20px -5px 5px -1px gray;
+}
+
+input {
+  border-radius: 1px 10px;
+}
+form {
+  display: flex;
+  justify-content: space-between;
+  width: 18rem;
+  box-shadow: 10px -5px 10px 1px gray;
+  align-items: center;
+  border-radius: 5px solid;
+  margin: 15px;
+  padding: 15px;
+  border-style: double;
+  border-radius: 10px 90px;
+}
+.footer {
+  grid-area: f;
+  text-align: center;
+  height: 10vh;
 }
 
 #congra-pragraph-id {
   width: 20vw;
   height: 35vh;
   align-self: center;
-  border-radius: 50%;
+  border-radius: 100px 100px 5000px 100px;
   border: solid;
   font-size: larger;
   font-weight: bold;
   display: flex;
   align-items: center;
+  animation: App-logo-spin infinite 5s linear;
+  animation-direction: alternate;
+  box-shadow: 10px -5px 10px 1px gray;
 }
-input {
-  border-radius: 1px 10px;
+
+@keyframes App-logo-spin {
+  0% {
+    transform: skewX(20deg);
+  }
+  100% {
+    transform: skewX(-20deg);
+  }
 }
-form {
-  border-radius: 10%;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: fit-content;
-  border: solid;
-  justify-content: space-around;
-}
-.footer {
-  grid-area: f;
-  text-align: center;
-  height: 10vh;
+
+@keyframes spin {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(20deg);
+  }
+  100% {
+    transform: rotateY(-20deg);
+  }
 }
