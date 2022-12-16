@@ -133,11 +133,16 @@ const words = [
 // this for loop help me to debug the actuall words that is in the array and then used execl file to compare what I want to story in the array and the order they are and the actual out put from the array
 
 let CourageWords = [
-  "Perfect you deserve 🎂",
-  "Well done sir 🤵",
-  "You are super star ⭐⭐",
-  "You are flying now ✈✈ ",
-  "Now you are unstoppable 🏎 🏎",
+  "Perfect",
+  "Well done sir ",
+  "You are super star ",
+  "You are flying now",
+  "you are unstoppable",
+  "Excellent",
+  "You are improving",
+  "Good progress",
+  "Exceptional",
+  "You deserve a cake",
 ];
 
 const getEncourageWord = () => {
@@ -188,9 +193,9 @@ sayResult.volume = 5;
 sayResult.pitch = 1;
 sayResult.voice = speechSynthesis.getVoices()[1];
 
-muteBtn.addEventListener('click', (e) => {
+muteBtn.addEventListener("click", (e) => {
   speechSynthesis.cancel();
-})
+});
 
 const sayTheWord = (theWord) => {
   speechSynthesis.cancel();
@@ -233,8 +238,8 @@ inputEl.addEventListener("keypress", (e) => {
 const checkAnswer = () => {
   if (inputEl.value === comparingAnswer) {
     playerInfContainer.disabled = true;
-    sayResult.text = getEncourageWord();
-    p.textContent = `${getEncourageWord()} ${myName} keep going`;
+    sayResult.text = `${getEncourageWord()}, keep going ${myName}`;
+    p.textContent = `${sayResult.text}`;
     inputEl.value = "";
     spanElCorrect.textContent = correctCount++;
     speechSynthesis.speak(sayResult);
@@ -242,7 +247,7 @@ const checkAnswer = () => {
     displayButton.focus();
   } else {
     sayResult.text = "get it right next time";
-    p.textContent = `📚 Nothing is impossible ${myName}, get it right next time, keep practicing 📖`;
+    p.textContent = `📚 Nothing is impossible ${myName},keep practicing 📖`;
     inputEl.value = "";
     spanElWrong.textContent = wrongCount++;
     speechSynthesis.speak(sayResult);
