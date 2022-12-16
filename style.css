@@ -2,6 +2,7 @@ html {
   height: 100%;
   width: 100%;
 }
+
 body {
   background-color: bisque;
   padding: 20px;
@@ -86,7 +87,7 @@ form {
 }
 
 #congra-pragraph-id {
-  width: 20vw;
+  width: fit-content;
   height: 35vh;
   align-self: center;
   border-radius: 100px 100px 5000px 100px;
@@ -95,17 +96,17 @@ form {
   font-weight: bold;
   display: flex;
   align-items: center;
-  animation: App-logo-spin infinite 5s linear;
+  animation: congrat infinite 5s linear;
   animation-direction: alternate;
   box-shadow: 10px -5px 10px 1px gray;
 }
 
-@keyframes App-logo-spin {
+@keyframes congrat {
   0% {
     transform: skewX(20deg);
   }
   100% {
-    transform: skewX(-20deg);
+    transform: skewX(-15deg);
   }
 }
 
