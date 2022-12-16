@@ -12,6 +12,8 @@ const playerInfContainer = document.querySelector(".player-info");
 const startingWord = document.querySelector("#start-Word");
 const endingWord = document.querySelector("#finish-Word");
 const m1 = document.querySelector("#mo1");
+const form = document.querySelector("#form-id");
+const p = document.querySelector("#congra-pragraph-id");
 
 const imageSection = document.querySelector(".images-section");
 
@@ -22,7 +24,6 @@ const words = [
   "actual",
   "actually",
   "address",
-  "although",
   "answer",
   "appear",
   "arrive",
@@ -33,7 +34,6 @@ const words = [
   "build",
   "busy",
   "business",
-  "busy",
   "calendar",
   "caught",
   "centre",
@@ -74,27 +74,97 @@ const words = [
   "imagine",
   "increase",
   "important",
+  "interest",
+  "island",
+  "knowledge",
+  "learn",
+  "length",
+  "library",
+  "material",
+  "medicine",
+  "mention",
+  "minute",
+  "natural",
+  "naughty",
+  "notice",
+  "occasion",
+  "occasionally",
+  "often",
+  "opposite",
+  "ordinary",
+  "particular",
+  "peculiar",
+  "perhaps",
+  "popular",
+  "position",
+  "possess",
+  "possession",
+  "possible",
+  "potatoes",
+  "pressure",
+  "probably",
+  "promise",
+  "purpose",
+  "quarter",
+  "question",
+  "recent",
+  "regular",
+  "reign",
+  "remember",
+  "sentence",
+  "separate",
+  "special",
+  "straight",
+  "strange",
+  "strength",
+  "suppose",
+  "surprise",
+  "therefore",
+  "though",
+  "although",
+  "thought",
+  "through",
+  "various",
+  "weight",
+  "woman",
+  "women",
 ];
-// const images = [
-//   "_imagesmo-khamis.jpg",
-//   "_imagesmo-suite.jpg",
-//   "_images/rayaan-surprice.jpg",
-//   "_images/rayaan.jpg",
-// ];
-// console.log(image[0])
-// let moImg = images.slice(0, 2);
-// let RaImg = images.slice(2);
-// let practiceRange = ["actual", "actually", "address", "although", "answer"];
+
+// this for loop help me to debug the actuall words that is in the array and then used execl file to compare what I want to story in the array and the order they are and the actual out put from the array
+for (let i = 0; i < words.length; i++) {
+  console.log(i, words[i]);
+}
+
+let CourageWords = [
+  "Perfect you deserve 🎂",
+  "Well done sir 🤵",
+  "You are super star ⭐⭐",
+  "You are flying now ✈✈ ",
+  "Now you are unstoppable 🏎 🏎",
+];
+
+const getEncourageWord = () => {
+  const courage = Math.floor(Math.random() * CourageWords.length);
+  const theCourageWord = CourageWords[courage];
+  return theCourageWord;
+};
 
 let correctCount = 1;
 let wrongCount = 1;
 let myName;
 let comparingAnswer;
 
+form.addEventListener("submit", (e) => e.preventDefault());
+
 firstName.addEventListener("keypress", (e) => {
   let value = e.target.value;
+
   if (e.key === "Enter") {
     myName = spanElName.innerText = value;
+    firstName.disabled = true;
+    startingWord.disabled = true;
+    endingWord.disabled = true;
+    displayButton.focus();
     if (myName === "Mohamed") {
       m1.src =
         "https://scontent.fman1-2.fna.fbcdn.net/v/t39.30808-6/273018888_2945578109067650_1879626940334376411_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=a26aad&_nc_ohc=MvMaZcvWtc8AX8VaYIT&_nc_ht=scontent.fman1-2.fna&oh=00_AfCbrAAar87YWq6f1JBfiW5NFkRu2XV4rH9F7pNwxLJjoA&oe=639F3EFF";
@@ -151,42 +221,38 @@ const sayTheWord = (theWord) => {
 };
 
 displayButton.addEventListener("click", sayTheWord);
-const setImage = () => {
-  if (firstName.value === "Mohamed") {
-    console.log(firstName.valu);
-    const moRandomImage = Math.floor(Math.random() * moImg.length);
-    image.src = moRandomImage;
-  } else if (firstName.value === "Rayaan") {
-    const rayRandomImage = Math.floor(Math.random() * RaImg.length);
-    image.src = rayRandomImage;
-  }
-};
 
 inputEl.addEventListener("keypress", (e) => {
   let event = e.target.value;
   if (e.key === "Enter") {
-    if (inputEl.value === comparingAnswer) {
-      playerInfContainer.disabled = true;
-      sayResult.text = `Exellent ${myName} You got it, let keep practice `;
-      inputEl.value = "";
-      spanElCorrect.textContent = correctCount++;
-      speechSynthesis.speak(sayResult);
-      inputEl.innerText = "";
-      displayButton.focus();
-    } else {
-      sayResult.text = `Not quit right this time, ${myName}, but keep practicing`;
-      console.log(spanElName.value);
-      speechSynthesis.speak(sayResult);
-      spanElWrong.textContent = wrongCount++;
-      inputEl.innerText = "";
-      displayButton.focus();
-    }
+    checkAnswer();
   }
 });
 
+const checkAnswer = () => {
+  if (inputEl.value === comparingAnswer) {
+    playerInfContainer.disabled = true;
+    sayResult.text = "good";
+    p.textContent = `${getEncourageWord()} ${myName} keep going`;
+    inputEl.value = "";
+    spanElCorrect.textContent = correctCount++;
+    speechSynthesis.speak(sayResult);
+    inputEl.innerText = "";
+    displayButton.focus();
+  } else {
+    sayResult.text = "Not right now";
+    p.textContent = `📚 Nothing is impossible ${myName}, get it right next time, keep practicing 📖`;
+    inputEl.value = "";
+    spanElWrong.textContent = wrongCount++;
+    speechSynthesis.speak(sayResult);
+    inputEl.innerText = "";
+    displayButton.focus();
+  }
+};
+
 window.onload = () => {
-  playerInfContainer.style.backgroundColor = "lightgreen"; // add timer
-  spell.text = `    
+  // playerInfContainer.style.backgroundColor = "lightgreen"; // add timer
+  spell.text = `
 Number one:- Select the range of words... you want to practice ....
 Number two:- Enter you name,... and then... press Enter key
 `;

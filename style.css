@@ -1,9 +1,22 @@
+html {
+  height: 100%;
+  width: 100%;
+}
 body {
   background-color: bisque;
-  padding: 10px;
+  padding: 20px;
   min-width: 200px;
-  grid-template-columns: auto;
-  grid-template-rows: 100px 400px 100px;
+  display: grid;
+  grid:
+    "h h h h"
+    "m m m m"
+    "f f f f";
+  width: 100%;
+  height: 100%;
+}
+
+.body-index {
+  display: flex;
 }
 #dispaly-word-paragraph {
   display: none;
@@ -12,14 +25,14 @@ body {
   grid-area: h;
   text-align: center;
   text-decoration: underline;
-  height: 20vh;
 }
 .main {
+  grid-area: m;
   display: grid;
   grid:
     "a a a b b"
     "a a a b b";
-  height: 60vh;
+  
 }
 .words-range {
   width: 50px;
@@ -44,11 +57,19 @@ body {
 }
 .imageplace {
   width: 20vw;
+  height: 35vh;
   align-self: center;
   border-radius: 50%;
 }
 #main-image {
-  width: 100vw;
+  /* width: 90vw; */
+}
+.congra-pragraph-id {
+  width: 20vw;
+  height: 35vh;
+  align-self: center;
+  border-radius: 50%;
+  border: solid;
 }
 input {
   border-radius: 1px 10px;
@@ -57,8 +78,10 @@ form {
   margin: 30px;
   border: double;
   border-radius: 10px;
+  padding: 5px;
 }
 .footer {
+  grid-area: f;
   text-align: center;
   height: 10vh;
 }
