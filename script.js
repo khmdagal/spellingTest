@@ -131,9 +131,7 @@ const words = [
 ];
 
 // this for loop help me to debug the actuall words that is in the array and then used execl file to compare what I want to story in the array and the order they are and the actual out put from the array
-for (let i = 0; i < words.length; i++) {
-  console.log(i, words[i]);
-}
+
 
 let CourageWords = [
   "Perfect you deserve 🎂",
