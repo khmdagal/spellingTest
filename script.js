@@ -3,8 +3,6 @@ const mainEl = document.querySelector(".main");
 const checkAnswerButton = document.getElementById("check-answer-btn");
 const questionDisplay = document.querySelector("#dispaly-word-paragraph");
 const inputEl = document.querySelector("#input-word");
-const spanElCorrect = document.querySelector("#count-correct-answers");
-const spanElWrong = document.querySelector("#count-wrong-answers");
 const firstName = document.querySelector("#fNme");
 const nameContainer = document.querySelector("#name-container");
 const spanElName = document.querySelector("#name-span");
@@ -16,7 +14,9 @@ const form = document.querySelector("#form-id");
 const p = document.querySelector("#congra-pragraph-id");
 const muteBtn = document.querySelector("#btn-mute");
 const imageSection = document.querySelector(".images-section");
-
+const spanElCorrect = document.querySelector("#count-correct-answers");
+const spanElWrong = document.querySelector("#count-wrong-answers");
+let accuracy = document.querySelector("#accuracy");
 // declaring the arrays that holds the words
 const words = [
   "accident",
@@ -144,6 +144,11 @@ let CourageWords = [
   "Exceptional",
   "You deserve a cake",
 ];
+// setting the accuracy of the result
+const result = () => {
+  return (accuracy.textContent = spanElCorrect.value - spanElWrong);
+};
+result(); //calling the accuracy function
 
 const getEncourageWord = () => {
   const courage = Math.floor(Math.random() * CourageWords.length);
