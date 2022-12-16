@@ -14,7 +14,7 @@ const endingWord = document.querySelector("#finish-Word");
 const m1 = document.querySelector("#mo1");
 const form = document.querySelector("#form-id");
 const p = document.querySelector("#congra-pragraph-id");
-
+const muteBtn = document.querySelector("#btn-mute");
 const imageSection = document.querySelector(".images-section");
 
 // declaring the arrays that holds the words
@@ -132,7 +132,6 @@ const words = [
 
 // this for loop help me to debug the actuall words that is in the array and then used execl file to compare what I want to story in the array and the order they are and the actual out put from the array
 
-
 let CourageWords = [
   "Perfect you deserve 🎂",
   "Well done sir 🤵",
@@ -189,6 +188,10 @@ sayResult.volume = 5;
 sayResult.pitch = 1;
 sayResult.voice = speechSynthesis.getVoices()[1];
 
+muteBtn.addEventListener('click', (e) => {
+  speechSynthesis.cancel();
+})
+
 const sayTheWord = (theWord) => {
   speechSynthesis.cancel();
   inputEl.innerText = "";
@@ -230,7 +233,7 @@ inputEl.addEventListener("keypress", (e) => {
 const checkAnswer = () => {
   if (inputEl.value === comparingAnswer) {
     playerInfContainer.disabled = true;
-    sayResult.text = "good";
+    sayResult.text = getEncourageWord();
     p.textContent = `${getEncourageWord()} ${myName} keep going`;
     inputEl.value = "";
     spanElCorrect.textContent = correctCount++;
@@ -238,7 +241,7 @@ const checkAnswer = () => {
     inputEl.innerText = "";
     displayButton.focus();
   } else {
-    sayResult.text = "Not right now";
+    sayResult.text = "get it right next time";
     p.textContent = `📚 Nothing is impossible ${myName}, get it right next time, keep practicing 📖`;
     inputEl.value = "";
     spanElWrong.textContent = wrongCount++;

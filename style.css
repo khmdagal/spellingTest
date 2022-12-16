@@ -68,7 +68,7 @@ body {
 input {
   border-radius: 1px 10px;
 }
-form {
+#form-id {
   display: flex;
   justify-content: space-between;
   width: 18rem;
@@ -84,6 +84,14 @@ form {
   grid-area: f;
   text-align: center;
   height: 10vh;
+}
+#title-and-muteBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#btn-mute {
+  width: 5vw;
 }
 
 #congra-pragraph-id {
