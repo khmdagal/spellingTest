@@ -259,7 +259,9 @@ const checkAnswer = () => {
     speechSynthesis.speak(sayResult);
     inputEl.innerText = "";
     displayButton.focus();
-    accuracy.textContent = Number(spanElCorrect.textContent - spanElWrong.textContent);
+    accuracy.textContent = Number(
+      spanElCorrect.textContent - spanElWrong.textContent
+    );
   }
 };
 
